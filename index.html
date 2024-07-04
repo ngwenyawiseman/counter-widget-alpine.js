@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine.js Widget</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <style>
+        body {
+            background-color: #483d8b;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .list-none {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            background-color: #0284c7;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #0369a1;
+        }
+
+        input {
+            padding: 10px;
+            margin-top: 10px;
+            width: 80%;
+        }
+
+        .counter-display {
+            font-size: 2em;
+            margin: 10px 0;
+        }
+
+        .site-footer {
+            background-color: #130c1f;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Alpine.js Widget</h2>
+
+
+    <div x-data="{ title: 'Hello, Thulebona Ngwenya' }">
+        <p x-text="title"></p>
+        <button x-on:click="title = 'You are in! Keep exploring AlpineJS'">Click In</button>
+        <button x-on:click="title = 'Yeahh! It is the end of the road, thank you (siyabonga🙏🏾🥺).'">Click Out</button>
+    </div>
+
+    <br>
+
+
+    <div x-data="{ message: 'AlpineJS is Awesome' }">
+        <p x-text="message"></p>
+        <input type="text" x-model="message">
+    </div>
+
+    <br>
+
+
+    <div x-data="{ content: '<p>Dynamic Paragraph</p>' }">
+        <div x-html="content"></div>
+    </div>
+
+    <br>
+
+
+    <div x-data>
+        <div x-ref="sentence">I am a sentence</div>
+        <button @click="$refs.sentence.innerText = 'I just changed'">Change Sentence</button>
+    </div>
+
+    <br>
+
+
+    <div x-data="{ counter: 0 }">
+        <div class="counter-display" x-text="counter"></div>
+        <button @click="counter++">Increment</button>
+        <button @click="counter > 0 ? counter-- : 0">Decrement</button>
+    </div>
+
+    <br>
+
+
+    <div x-data="{ count: 0 }">
+        <button @click="count++">+</button>
+        <span class="counter-display" x-text="count"></span>
+        <button @click="count > 0 ? count-- : 0">-</button>
+    </div>
+
+    <br>
+
+    <!-- Grocery List -->
+    <div x-data="{ groceries: ['Milk', 'Eggs', 'Cheese', 'Beans', 'Bread'] }">
+        <p>Groceries:</p>
+        <ul class="list-none">
+            <template x-for="item in groceries" :key="item">
+                <li x-text="item"></li>
+            </template>
+        </ul>
+    </div>
+    <footer class="site-footer">
+        &copy; MntimandeConsultingService 🐊
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Widget with Alpine.js</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="index.js" defer></script> <!-- Ensure this is loaded after Alpine.js -->
+
+    <style>
+        body {
+            background-color: #06484d;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            background-color: #0284c7;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #0369a1;
+        }
+
+        .counter-display {
+            font-size: 2em;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>  
+    <h1>Counter Widget with Alpine.js</h1>
+    <div x-data="counter()">
+        <p class="counter-display">Count: <span x-text="count"></span></p>
+        <button @click="decrement()">Decrement</button>
+        <button @click="increment()">Increment</button>
+    </div>
+
+    <!-- Alpine.js and Custom JS Files -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.1/dist/cdn.min.js"></script>
+</body>
+</html>
