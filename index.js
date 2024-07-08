@@ -1,4 +1,3 @@
-// index.js
 function Counter() {
     return {
         count: 0,

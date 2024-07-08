@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,23 +44,10 @@
             font-size: 2em;
             margin: 10px 0;
         }
-
-        .site-footer {
-            background-color: #130c1f;
-            color: #fff;
-            text-align: left;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            left: 0;
-        }
     </style>
 </head>
-
 <body>
     <h2>Alpine.js Widget</h2>
-
 
     <div x-data="{ title: 'Hello, Thulebona Ngwenya' }">
         <p x-text="title"></p>
@@ -71,7 +57,6 @@
 
     <br>
 
-
     <div x-data="{ message: 'AlpineJS is Awesome' }">
         <p x-text="message"></p>
         <input type="text" x-model="message">
@@ -79,13 +64,11 @@
 
     <br>
 
-
     <div x-data="{ content: '<p>Dynamic Paragraph</p>' }">
         <div x-html="content"></div>
     </div>
 
     <br>
-
 
     <div x-data>
         <div x-ref="sentence">I am a sentence</div>
@@ -94,7 +77,6 @@
 
     <br>
 
-
     <div x-data="{ counter: 0 }">
         <div class="counter-display" x-text="counter"></div>
         <button @click="counter++">Increment</button>
@@ -102,7 +84,6 @@
     </div>
 
     <br>
-
 
     <div x-data="{ count: 0 }">
         <button @click="count++">+</button>
@@ -113,17 +94,19 @@
     <br>
 
     <!-- Grocery List -->
-    <div x-data="{ groceries: ['Milk', 'Eggs', 'Cheese', 'Beans', 'Bread'] }">
+    <div x-data="{ groceries: ['Milk', 'Eggs', 'Cheese', 'Bread'], newGrocery: '' }">
         <p>Groceries:</p>
         <ul class="list-none">
             <template x-for="item in groceries" :key="item">
                 <li x-text="item"></li>
             </template>
         </ul>
+        <input type="text" x-model="newGrocery" placeholder="Enter a new grocery item">
+        <button @click="if (newGrocery.trim()) { groceries.push(newGrocery); newGrocery = ''; }">Add Grocery</button>
     </div>
+
     <footer class="site-footer">
         &copy; MntimandeConsultingService 🐊
     </footer>
 </body>
-
 </html>
