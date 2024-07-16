@@ -77,11 +77,13 @@
 
     <br>
 
-    <div x-data="{ counter: 0 }">
-        <div class="counter-display" x-text="counter"></div>
-        <button @click="counter++">Increment</button>
-        <button @click="counter > 0 ? counter-- : 0">Decrement</button>
-    </div>
+ <div x-data="{counter:0, max:10}">
+    <div class="counter-display"
+    x-text="counter"></div>
+    <button @click="counter < max ? counter++: alert('Max limit reached')">Increment</button>
+    <button @click="counter > 0? counter --:0">Decrement</button>
+    <button @click="counter = 0">Reset</button>
+ </div>
 
     <br>
 
